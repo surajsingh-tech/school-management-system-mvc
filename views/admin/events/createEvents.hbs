@@ -1,0 +1,104 @@
+{{>header}}
+{{>navbar}}
+{{>breadcrumb}}
+
+<div class="container-fluid  bg-gradient  bgblack">
+  <div class="row">
+    <div class="col-md-3">
+      {{>sidebar}}
+    </div>
+    <div class="col-md-9 mb-3 ">
+      <div class="card shadow-lg border-0 rounded-3">
+        <div class="card-header custom-header text-white d-flex justify-content-between align-items-center sidebar">
+          <h2 class="mb-0 text-uppercase fw-bold text-white">
+            <i class="fa fa-calendar-check me-2"></i> Create Event
+          </h2>
+          <a href="/admin/events" class="btn btn-dark btn-sm rounded-pill fw-bolder">
+            <i class="fa fa-arrow-left-long me-1 w-10"></i> Back
+          </a>
+       </div>
+
+        <div class="card-body p-4">
+ <form action="/admin/events/store" method="post" enctype="multipart/form-data">
+
+  <div class="shadow rounded p-3 mb-3 bg-white">
+    <label for="title" class="form-label fw-bold text-dark"><i class="fa fa-heading me-1"></i> Title</label>
+    <input type="text" name="title" placeholder="Enter Event Title"
+      value="{{formData.title}}"
+      class="form-control {{#if errorMessage.title}} is-invalid {{/if}}">
+    {{#if errorMessage.title}} <div class="invalid-feedback">{{errorMessage.title}}</div>{{/if}}
+  </div>
+
+  <div class="shadow rounded p-3 mb-3 bg-white">
+    <label for="shortDescription" class="form-label fw-bold text-dark"><i class="fa fa-align-left me-1"></i> Short Description</label>
+    <input type="text" name="shortDescription" placeholder="Enter Short Description"
+      value="{{formData.shortDescription}}"
+      class="form-control {{#if errorMessage.shortDescription}} is-invalid {{/if}}">
+    {{#if errorMessage.shortDescription}} <div class="invalid-feedback">{{errorMessage.shortDescription}}</div>{{/if}}
+  </div>
+
+  <div class="shadow rounded p-3 mb-3 bg-white">
+    <label for="longDescription" class="form-label fw-bold text-dark"><i class="fa fa-align-justify me-1"></i> Long Description</label>
+    <textarea name="longDescription" rows="4" placeholder="Enter Long Description"
+      class="form-control rich-editor {{#if errorMessage.longDescription}} is-invalid {{/if}}">{{formData.longDescription}}</textarea>
+    {{#if errorMessage.longDescription}} <div class="invalid-feedback">{{errorMessage.longDescription}}</div>{{/if}}
+  </div>
+
+  <div class="row g-3 mb-3">
+    <div class="col-md-4">
+      <div class="shadow rounded p-3 bg-white">
+        <label for="pic" class="form-label fw-bold text-dark">
+          <i class="fa fa-image me-1"></i> Event Picture
+        </label>
+        <input type="file" name="pic"
+          class="form-control {{#if errorMessage.pic}} is-invalid {{/if}}">
+        {{#if errorMessage.pic}}
+          <div class="invalid-feedback">{{errorMessage.pic}}</div>
+        {{/if}}
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="shadow rounded p-3 bg-white">
+        <label for="date" class="form-label fw-bold text-dark">
+          <i class="fa fa-calendar-day me-1"></i> Event Date
+        </label>
+        <input type="date" name="date"
+          value="{{formData.date}}"
+          class="form-control {{#if errorMessage.date}} is-invalid {{/if}}">
+        {{#if errorMessage.date}}
+          <div class="invalid-feedback">{{errorMessage.date}}</div>
+        {{/if}}
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="shadow rounded p-3 bg-white">
+        <label for="active" class="form-label fw-bold text-dark">
+          <i class="fa fa-toggle-on me-1"></i> Active Status
+        </label>
+        <select name="active" class="form-select {{#if errorMessage.active}} is-invalid {{/if}}">
+          <option value="" disabled {{#unless formData.active}}selected{{/unless}}>-- Select Status --</option>
+          <option value="true" {{#if (eq formData.active "true")}}selected{{/if}}>Active</option>
+          <option value="false" {{#if (eq formData.active "false")}}selected{{/if}}>Inactive</option>
+        </select>
+        {{#if errorMessage.active}}
+          <div class="invalid-feedback">{{errorMessage.active}}</div>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+
+  <div class="d-grid sidebar">
+    <button type="submit" class="btn btn-lg fw-bold text-white custom-header">
+      <i class="fa fa-plus-circle me-2"></i> Create Event
+    </button>
+  </div>
+</form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{>footer}}

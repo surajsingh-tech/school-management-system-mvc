@@ -1,0 +1,76 @@
+{{>header}}
+{{>navbar}}
+{{>breadcrumb}}
+
+<div class="container-fluid bgblack">
+  <div class="row">
+    <!-- Sidebar -->
+    <div class="col-md-2">
+      {{>sidebar}}
+    </div>
+
+    <!-- Main Content -->
+    <div class="col-md-10">
+      <h1 class="text-center py-3 mb-4 rounded shadow-sm custom-header text-white sidebar">
+        Events 
+        <a href="/admin/events/createPage">
+          <i class="fa fa-plus float-end mx-2 text-white"></i>
+        </a>
+      </h1>
+    <table class="custom-table table table-dark table-bordered table-hover text-center">
+  <thead>
+    <tr>
+      <th class="col-id">Id</th>
+      <th class="col-title">Title</th>
+      <th class="col-pic">Pic</th>
+      <th class="col-date">Date</th>
+      <th class="col-short">Short Description</th>
+      <th class="col-long">Long Description</th>
+      <th class="col-view">active</th>
+      <th class="col-view">View</th>
+      <th class="col-update">Update</th>
+      <th class="col-delete">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each data}}
+     <tr>
+      <td class="id-cell">{{ this._id }}</td>
+      <td class="break-word ">{{shortway this.title 30}}</td>
+      <td><span class="text-muted"><img src="/{{this.pic}}" alt="images" style="max-width:150px;"></span></td>
+      <td>{{formatDate this.date}}</td>
+      <td class=" col-short">
+       {{shortway this.shortDescription 40}} 
+             </td>
+      <td class=" col-long">
+       {{shortway this.longDescription 50}} 
+      </td>
+      <td class="col-active">
+       {{chkactive this.active}} 
+      </td>
+      <td class="col-view">
+  <a href="/admin/event/view/{{this._id}}" title="View">
+    <i class="fa fa-eye text-primary"></i>
+  </a>
+</td>
+
+<td class="col-update">
+  <a href="/admin/events/updatePage/{{this._id}}" title="Edit">
+    <i class="fa fa-edit text-success"></i>
+  </a>
+</td>
+
+<td class="col-delete">
+  <a href="/admin/event/delete/{{this._id}}" title="Delete"
+     onclick="return confirm('Are you sure you want to delete this event?');">
+    <i class="fa fa-trash text-danger"></i>
+  </a>
+</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+    </div>
+  </div>
+</div>
+{{>footer}}
