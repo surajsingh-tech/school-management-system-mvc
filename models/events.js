@@ -2,19 +2,21 @@ const mongoose=require('mongoose');
 const eventsSchema = new mongoose.Schema({
   title:{
     type:String,
-    required:[true,'Event Title must Required']
+    required:[true,'Event Title must Required'],
+     minlength: [15, 'Short description must be at least 25 characters'],
+     maxlength: [100, 'Short description cannot exceed 500 characters']
   },
   shortDescription:{
     type:String,
     required:[true,'Event Short Description must Required'],
     minlength: [25, 'Short description must be at least 25 characters'],
-    maxlength: [100, 'Short description cannot exceed 100 characters']
+    maxlength: [5000, 'Short description cannot exceed 5000 characters']
   },
   longDescription:{
     type:String,
     required:[true,'Event Long Description must Required'],
-    minlength: [50, 'Long description must be at least 50 characters'],
-    maxlength: [500, 'Long description cannot exceed 500 characters']
+    minlength: [25, 'Long description must be at least 25 characters'],
+    maxlength: [10000, 'Long description cannot exceed 1000 characters']
   },
   pic:{
     type:String,
@@ -27,7 +29,7 @@ const eventsSchema = new mongoose.Schema({
   createdBy:{
     type:String,
   },
-  createdBy:[],
+  updatedBy:[],
   active:{
     type:Boolean,
     required:[true,'Event active status must Required']

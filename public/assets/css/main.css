@@ -52,11 +52,11 @@
 
 /* Column widths */
 .custom-table .col-id { width: 8%; }
-.custom-table .col-title { width: 15%; }
+.custom-table .col-title { width: 10%; }
 .custom-table .col-pic { width: 13%; }
-.custom-table .col-date { width: 10%; }
+.custom-table .col-date { width: 8%; }
 .custom-table .col-short { width: 15%; }
-.custom-table .col-long { width: 15%; }
+.custom-table .col-long { width: 15%;}
 .custom-table .col-view,
 .custom-table .col-update,
 .custom-table .col-delete { width: 5%; }
@@ -107,6 +107,7 @@
 
 .event-img {
   border-radius: 12px;
+  max-height: 500px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.35);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
@@ -208,7 +209,11 @@
 }
 
 /* admin table */
-
 *body{
   background-color: black;
+}
+
+.custom-table td, 
+.custom-table th {
+  vertical-align: middle !important;
 }

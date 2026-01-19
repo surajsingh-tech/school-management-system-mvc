@@ -7,7 +7,7 @@ const sanitize = require('sanitize-filename'); //  Ensures safe filenames by rem
 const fileUploader = (folderName) => {
   const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      const fullPath = path.resolve(`public/uploads/${folderName}`);
+      const fullPath = path.resolve(`public/uploads/${folderName}`); //  Absolute server-side path where multer will save uploaded files
       
       // Ensure folder exists
       if (!fs.existsSync(fullPath)) {

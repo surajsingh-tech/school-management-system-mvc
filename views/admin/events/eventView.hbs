@@ -18,7 +18,7 @@
       <i class="bi bi-arrow-left-circle-fill fs-4 hover-icon"></i>
     </a>
     <!-- Edit -->
-    <a href="/admin/events/updatePage/{{event._id}}" class="text-white text-decoration-none" title="Edit">
+    <a href="/admin/event/updatePage/{{event._id}}" class="text-white text-decoration-none" title="Edit">
       <i class="bi bi-pencil-fill fs-4 hover-icon"></i>
     </a>
     <!-- Delete -->
@@ -34,13 +34,16 @@
       <!-- Left Column -->
       <div class="col-md-7 p-4">
         <h3 class="card-title text-gradient mb-3">{{event.title}}</h3>
-        
         <ul class="list-group list-group-flush mb-3">
           <li class="list-group-item"><i class="bi bi-hash text-primary"></i> <strong>Id:</strong> {{event._id}}</li>
           <li class="list-group-item"><i class="bi bi-clock text-primary"></i> <strong>Date:</strong> {{event.date}}</li>
-          <li class="list-group-item"><i class="bi bi-card-text text-primary"></i> <strong>Short Description:</strong> {{event.shortDescription}}</li>
-          <li class="list-group-item"><i class="bi bi-file-text text-primary"></i> <strong>Long Description:</strong> {{event.longDescription}}</li>
-          <li class="list-group-item"><i class="bi bi-check-circle text-primary"></i> <strong>Active:</strong> 
+          <li class="list-group-item"><i class="bi bi-card-text text-primary"></i> <strong>Short Description:</strong> {{ event.shortDescription}}</li>
+          <li class="list-group-item"><i class="bi bi-file-text text-primary"></i> <strong>Long Description:</strong> {{ event.longDescription}}</li>
+           <li class="list-group-item"><i class="bi bi-person text-primary"></i> <strong>Created By: </strong>{{ event.createdBy}} at {{formatDateTime event.createdAt}}</li>
+          {{#each event.update}}
+          <li>{{name}}-{{formatDate date}}</li>
+          {{/each}}
+           <li class="list-group-item"><i class="bi bi-check-circle text-primary"></i> <strong>Active:</strong> 
             <span class="badge {{#if event.active}}bg-success{{else}}bg-danger{{/if}}">{{chkactive event.active}}</span>
           </li>
         </ul>
@@ -48,7 +51,7 @@
 
       <!-- Right Column -->
       <div class="col-md-5 d-flex align-items-center justify-content-center p-4">
-        <img src="/{{event.pic}}" alt="event image" class="img-fluid event-img">
+        <img src="{{event.pic}}" alt="event image" class="img-fluid event-img">
       </div>
     </div>
   </div>
