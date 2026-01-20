@@ -118,10 +118,10 @@ let eventUpdateStore=async (req,res)=>{
 
         // Title
         title: fieldErrors.title
-          ? req.body.title // error आया तो req.body वाला ही
+          ? req.body.title 
           : (req.body.title !== undefined && req.body.title.trim() !== ""
-              ? req.body.title // user ने नया लिखा है
-              : preEvent.title), // वरना पुराना
+              ? req.body.title 
+              : preEvent.title), 
 
         // Short Description
         shortDescription: fieldErrors.shortDescription
@@ -187,7 +187,7 @@ let adminEventsDeletePage = async (req, res) => {
 
 let eventStorePage = async (req, res) => {
   try {
-    var data = new Event(req.body); //- new Event(req.body) → नया Mongoose document बनाता है, validation attach करता है, और .save() allow करता है
+    var data = new Event(req.body); //- new Event(req.body) → create new Mongoose document , validation attach , and  allow .save() method
     if (req.file) {
       data.pic = `/uploads/events/${req.file.filename}`; // This path will be used by the browser to display the image via <img src="{{pic}}">
     }

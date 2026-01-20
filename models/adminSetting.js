@@ -12,6 +12,8 @@ const adminSettingsSchema = new mongoose.Schema({
   instagram: { type: String },
   twitter: { type: String },
   sitename: { type: String },
+  createBy:{type:String},
+  updateBy:{type:String}
 }, { timestamps: true });
 
 // Model export
