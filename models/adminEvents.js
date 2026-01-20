@@ -29,7 +29,9 @@ const eventsSchema = new mongoose.Schema({
   createdBy:{
     type:String,
   },
-  updatedBy:[],
+  updatedBy: {
+  type: String
+    },
   active:{
     type:Boolean,
     required:[true,'Event active status must Required']

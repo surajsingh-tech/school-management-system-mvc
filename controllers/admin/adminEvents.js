@@ -1,6 +1,6 @@
 //for Check Schema Validation
 const mongoose = require("mongoose"); //for validate id in mongo   (!mongoose.Types.ObjectId.isValid(id))
-const Event = require("../../models/events");
+const Event = require("../../models/adminEvents");
 const fs = require("fs").promises;
 const path = require("path");
 
@@ -38,8 +38,10 @@ let adminEventsShowPage = async (req, res) => {
 
     const data = await Event.findById(id);
     if (data) {
+      console.log("Event View Data",data);
+      
       res.render("admin/events/eventView.hbs", {
-        event: data,
+        data: data,
         title: "Admin Event View Page",
         page: "Admin",
       });
@@ -87,6 +89,7 @@ let eventUpdateStore=async (req,res)=>{
   try{
     let id=req.params.id;
      preEvent=await Event.findById(id)
+
     if (!preEvent) {
       return res.status(404).send("Event not found");
     }
@@ -98,6 +101,7 @@ let eventUpdateStore=async (req,res)=>{
       longDescription: req.body.longDescription,
       date: req.body.date,
       active: req.body.active,
+      createdBy:preEvent.createdBy,
       pic: req.file ? `/uploads/events/${req.file.filename}` : preEvent.pic,
       updatedBy: "Admin",
       updatedAt: new Date()
@@ -108,7 +112,6 @@ let eventUpdateStore=async (req,res)=>{
      res.redirect("/admin/events"); 
   }
     catch(err){
-      console.log("data Update ERRor",err.errors.title)
      const fieldErrors = err.errors || {};
       const mergedData = {
         _id: preEvent._id,
@@ -161,12 +164,10 @@ let eventUpdateStore=async (req,res)=>{
   }
 }
 
-
 let adminEventsDeletePage = async (req, res) => {
   try {
     let id = req.params._id;
     let data = await Event.findById(id);
-    console.log("data", data);
     if (data) {
       try {
         const filePath = path.join(__dirname, "../../public", data.pic);
@@ -191,6 +192,8 @@ let eventStorePage = async (req, res) => {
       data.pic = `/uploads/events/${req.file.filename}`; // This path will be used by the browser to display the image via <img src="{{pic}}">
     }
     data.createdBy = "Admin";
+    data.updatedBy= '',
+    data.updatedAt= '',
     await data.save();
     res.redirect("/admin/events");
   } catch (err) {

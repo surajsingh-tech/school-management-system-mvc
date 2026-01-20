@@ -18,3 +18,5 @@ router.use('/admin', adminRouter);
 const eventRouter=require('./admin/event')
 router.use('/admin',eventRouter)
 
+const settingRouter=require('./admin/setting')
+router.use('/admin',settingRouter)
