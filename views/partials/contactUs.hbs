@@ -1,152 +1,229 @@
 <!-- START CONTACT PAGE SECTION -->
-      <section id="contcat" class="section-padding">
-         <div class="auto-container">
-            <div class="row">
-               <div class="col-lg-5 col-md-5 col-12 mb-lg-0 mb-md-0 mb-5">
-                 <div class="address-box-wrap bg-gray shadow-sm p-lg-5 p-md-3 p-3">
-                     <div class="address-box-sin mb-4">
-                        <div class="address-box-icon">
-                           <i class="icofont-location-pin"></i>
-                        </div>
-                        <div class="address-box-des">
-                           <h4>Office Address</h4>
-                           <p>Myers Street, Brooklyn <br> NY 10004, United States</p>
-                        </div>
-                     </div>
-                     <!-- end single address box -->
-                     <div class="address-box-sin mb-4">
-                        <div class="address-box-icon">
-                           <i class="icofont-envelope-open"></i>
-                        </div>
-                        <div class="address-box-des">
-                           <h4>Send Email</h4>
-                           <p>info@your_mail.com <br> info@your_website.com</p>
-                        </div>
-                     </div>
-                     <!-- end single address box -->
-                     <div class="address-box-sin mb-4">
-                        <div class="address-box-icon">
-                           <i class="icofont-fax"></i>
-                        </div>
-                        <div class="address-box-des">
-                           <h4>Phone & Fax</h4>
-                           <p>+123-456-0975 <br> +456-123-675</p>
-                        </div>
-                     </div>
-                     <!-- end single address box -->
-                     <div class="address-box-sin">
-                        <div class="address-box-icon">
-                           <i class="icofont-eye"></i>
-                        </div>
-                        <div class="address-box-des">
-                           <h4>Opening Time</h4>
-                           <p>Mon - Sat: 9 AM - 5 PM <br> Sun: Close</p>
-                        </div>
-                     </div>
-                     <!-- end single address box -->
-                 </div>
-               </div>
-               <!-- end col -->
-               <div class="col-lg-7 col-md-7 col-12 pl-lg-5 pl-md-3 pl-0">
-                  <div class="contact-heading mb-5">
-                     <h2>Join With Us</h2>
-                  </div>
-                  <div class="contact-form-wrap">
-                     <form id="main-form" class="contact-form form" name="enq" method="POST" action="form-process.php">
-                        <div class="row">
-                           <div class="col-md-6">
-                              <div class="form-group">
-                                 <span class="form-icon"><i class="icofont-user"></i></span>
-                                 <input type="text" class="form-control" id="name" placeholder="John" required>
-                                 <label for="name">First Name*</label>
-                              </div>
-                           </div>
-                           <div class="col-md-6">
-                              <div class="form-group">
-                                 <span class="form-icon"><i class="icofont-envelope"></i></span>
-                                 <input type="email" class="form-control" id="email" placeholder="example@xyz.com" required>
-                                 <label for="email">Email*</label>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="row">
-                           <div class="col-md-6">
-                              <div class="form-group">
-                                 <span class="form-icon"><i class="icofont-ui-dial-phone"></i></span>
-                                 <input type="text" class="form-control" id="number" placeholder="xxx-xxx-xxxx" required>
-                                 <label for="number">Contact Number*</label>
-                              </div>
-                           </div>
-                           <div class="col-md-6">
-                              <div class="form-group">
-                                 <span class="form-icon"><i class="icofont-at"></i></span>
-                                 <input type="text" class="form-control" id="subject" placeholder="Subject" required>
-                                 <label for="subject">Subject*</label>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="form-group form-message">
-                           <textarea class="form-control" id="message" rows="6" placeholder="Message"></textarea>
-                           <label for="message">Message</label>
-                        </div>
-                        <div class="text-center wow fadeInUp">
-                            <div class="actions">
-                                <input value="SUBMIT MESSAGE" name="submit" id="submitButton" class="btn con-btn" title="Click here to submit your message!" type="submit">
-                                <img src="assets/img/ajax-loader.gif" id="loader" style="display:none" alt="loading" width="16" height="16">
-                            </div>
-                        </div>
-                     </form>
-                  </div>
-               </div>
-               <!-- end col -->
+<section id='contactFormSection' class='section-padding'>
+  <div class='auto-container'>
+    <div class='row'>
+       <div class='col-12 text-center mb-5'>
+        <h1 class="main-heading text-primary">Contact Us</h1>
+        <p class="sub-heading text-muted">We’d love to hear from you. Reach out anytime!</p>
+      </div>
+      <div class='col-lg-5 col-md-5 col-12 mb-lg-0 mb-md-0 mb-5'>
+        <div class='address-box-wrap bg-gray shadow-sm p-lg-5 p-md-3 p-3'>
+          <div class='address-box-sin mb-4'>
+            <div class='address-box-icon'>
+              <i class='icofont-location-pin'></i>
             </div>
-         </div>
-      </section>
-      <!-- END CONTACT PAGE SECTION -->
-
-      <!-- START MAP SECTION -->
-      <div class="section-padding py-0">
-         <!-- start google map -->
-         <div class="gmap_canvas">
-            <iframe id="gmap_canvas" src="https://maps.google.com/maps?q=Brooklyn%20NY%2010004&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
-         </div>
-         <!-- end google map -->
+            <div class='address-box-des'>
+              <h4 class='text-primary'>Address</h4>
+              <p>{{siteAddress}}</p>
+            </div>
+          </div>
+          <!-- end single address box -->
+          <div class='address-box-sin mb-4'>
+            <div class='address-box-icon'>
+              <i class='icofont-envelope-open'></i>
+            </div>
+            <div class='address-box-des'>
+              <h4 class='text-primary'>Email</h4>
+              <p>{{siteEmail}}</p>
+            </div>
+          </div>
+          <!-- end single address box -->
+          <div class='address-box-sin mb-4'>
+            <div class='address-box-icon'>
+              <i class='icofont-fax'></i>
+            </div>
+            <div class='address-box-des'>
+              <h4 class='text-primary'>Phone</h4>
+              <p>{{sitePhone}}</p>
+            </div>
+          </div>
+          <!-- end single address box -->
+          <div class='address-box-sin'>
+            <div class='address-box-icon'>
+              <i class='icofont-eye'></i>
+            </div>
+            <div class='address-box-des'>
+              <h4 class='text-primary'>Opening Time</h4>
+              <p>{{siteTime}}</p>
+            </div>
+          </div>
+          <!-- end single address box -->
+        </div>
       </div>
-      <!-- END MAP SECTION -->
+      <!-- end col -->
+      <div class='form-container col-lg-7 col-md-7 col-12'>
+          <!--  Success/Error Message Block -->
+         {{#if successMessage}}
+           <div class="alert alert-success text-center">
+             {{successMessage}}
+           </div>
+         {{/if}}
 
-      <!-- START CLIENT LOGO SECTION -->
-      <div id="clients" class="client-padding bg-gray">
-          <div class="container">
-              <div class="row mb-lg-0 mb-md-0 mb-5">
-                  <div class="col">
-                      <div class="clients-slides owl-carousel owl-theme">
-                          <div class="single-client-item">
-                              <a href="#"><img class="img-fluid" alt="" src="assets/img/clients/1.png"></a>
-                          </div>
-                          <!-- end single item -->
-                          <div class="single-client-item">
-                              <a href="#"><img class="img-fluid" alt="" src="assets/img/clients/2.png"></a>
-                          </div>
-                          <!-- end single item -->
-                          <div class="single-client-item">
-                              <a href="#"><img class="img-fluid" alt="" src="assets/img/clients/3.png"></a>
-                          </div>
-                          <!-- end single item -->
-                          <div class="single-client-item">
-                              <a href="#"><img class="img-fluid" alt="" src="assets/img/clients/4.png"></a>
-                          </div>
-                          <!-- end single item -->
-                          <div class="single-client-item">
-                              <a href="#"><img class="img-fluid" alt="" src="assets/img/clients/5.png"></a>
-                          </div>
-                          <!-- end single item -->
-                          <div class="single-client-item">
-                              <a href="#"><img class="img-fluid" alt="" src="assets/img/clients/6.png"></a>
-                          </div>
-                          <!-- end single item -->
-                      </div>
-                  </div>
-              </div>
-          </div>  
+         <!--  End Message Block -->
+
+         <h2 class='form-title'>Join With Us</h2>
+         <form action='/contactStore' method='POST' class='custom-form'>
+         
+            <div class='form-row'>
+               <div class='form-group'>
+               <label for='name'>First Name*</label>
+               <input
+                  type='text'
+                  id='name'
+                  name='name'
+                  placeholder='Enter your name'
+                  value='{{formData.name}}'
+                  class='form-control {{#if errorMessage.name}} is-invalid {{/if}}'
+               />
+               {{#if errorMessage.name}}
+                  <div class='invalid-feedback'>{{errorMessage.name}}</div>
+               {{/if}}
+               </div>
+
+               <div class='form-group'>
+               <label for='email'>Email*</label>
+               <input
+                  type='email'
+                  id='email'
+                  name='email'
+                  placeholder='Enter your email'
+                  value='{{formData.email}}'
+                  class='form-control {{#if errorMessage.email}} is-invalid {{/if}}'
+               />
+               {{#if errorMessage.email}}
+                  <div class='invalid-feedback'>{{errorMessage.email}}</div>
+               {{/if}}
+               </div>
+            </div>
+
+            <div class='form-row'>
+               <div class='form-group'>
+               <label for='phone'>Contact Number*</label>
+               <input
+                  type='tel'
+                  id='phone'
+                  name='phone'
+                  placeholder='Enter your phone number'
+                  value='{{formData.phone}}'
+                  class='form-control {{#if errorMessage.phone}} is-invalid {{/if}}'
+               />
+               {{#if errorMessage.phone}}
+                  <div class='invalid-feedback text-danger'>{{errorMessage.phone}}</div>
+               {{/if}}
+               </div>
+
+               <div class='form-group'>
+               <label for='subject'>Subject*</label>
+               <input
+                  type='text'
+                  id='subject'
+                  name='subject'
+                  placeholder='Enter subject'
+                  value='{{formData.subject}}'
+                  class='form-control {{#if errorMessage.subject}} is-invalid {{/if}}'
+               />
+               {{#if errorMessage.subject}}
+                  <div class='invalid-feedback'>{{errorMessage.subject}}</div>
+               {{/if}}
+               </div>
+            </div>
+
+            <div class='form-group full-width'>
+               <label for='message'>Message</label>
+               <textarea
+               id='message'
+               name='message'
+               rows='6'
+               placeholder='Enter your message'
+               class='form-control {{#if errorMessage.message}} is-invalid {{/if}}'
+               >{{formData.message}}</textarea>
+               {{#if errorMessage.message}}
+               <div class='invalid-feedback'>{{errorMessage.message}}</div>
+               {{/if}}
+            </div>
+
+            <div class='form-actions submit-btn'>
+               <button type='submit' class='btn-submit'>Submit Message</button>
+            </div>
+         </form>
+</div>
+
+      <!-- end col -->
+    </div>
+  </div>
+</section>
+<!-- END CONTACT PAGE SECTION -->
+
+<!-- START MAP SECTION -->
+<div class='section-padding py-0'>
+  <!-- start google map -->
+  <div class='gmap_canvas'>
+    <iframe
+      id='gmap_canvas'
+      src='https://maps.google.com/maps?q=Brooklyn%20NY%2010004&t=&z=13&ie=UTF8&iwloc=&output=embed'
+    ></iframe>
+  </div>
+  <!-- end google map -->
+</div>
+<!-- END MAP SECTION -->
+
+<!-- START CLIENT LOGO SECTION -->
+<div id='clients' class='client-padding bg-gray'>
+  <div class='container'>
+    <div class='row mb-lg-0 mb-md-0 mb-5'>
+      <div class='col'>
+        <div class='clients-slides owl-carousel owl-theme'>
+          <div class='single-client-item'>
+            <a href='#'><img
+                class='img-fluid'
+                alt=''
+                src='assets/img/clients/1.png'
+              /></a>
+          </div>
+          <!-- end single item -->
+          <div class='single-client-item'>
+            <a href='#'><img
+                class='img-fluid'
+                alt=''
+                src='assets/img/clients/2.png'
+              /></a>
+          </div>
+          <!-- end single item -->
+          <div class='single-client-item'>
+            <a href='#'><img
+                class='img-fluid'
+                alt=''
+                src='assets/img/clients/3.png'
+              /></a>
+          </div>
+          <!-- end single item -->
+          <div class='single-client-item'>
+            <a href='#'><img
+                class='img-fluid'
+                alt=''
+                src='assets/img/clients/4.png'
+              /></a>
+          </div>
+          <!-- end single item -->
+          <div class='single-client-item'>
+            <a href='#'><img
+                class='img-fluid'
+                alt=''
+                src='assets/img/clients/5.png'
+              /></a>
+          </div>
+          <!-- end single item -->
+          <div class='single-client-item'>
+            <a href='#'><img
+                class='img-fluid'
+                alt=''
+                src='assets/img/clients/6.png'
+              /></a>
+          </div>
+          <!-- end single item -->
+        </div>
       </div>
-      <!-- START CLIENT LOGO SECTION -->
+    </div>
+  </div>
+</div>
+<!-- START CLIENT LOGO SECTION -->

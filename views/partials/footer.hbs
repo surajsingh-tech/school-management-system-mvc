@@ -146,5 +146,15 @@
                })
                .catch(error => console.error(error));
          </script>
+         {{!--  for auto-scrolling to the form or other page  (center) after page reload --}}
+         <script>
+            window.onload = function(){
+               const scroolTarget = "{{scroolTarget}}";
+               if(scroolTarget){
+                  document.getElementById(scroolTarget).scrollIntoView({behavior: "smooth"});
+               }
+            }
+</script>
    </body>
 </html>
+           

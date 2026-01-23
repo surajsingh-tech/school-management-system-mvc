@@ -1,10 +1,9 @@
 const frontRouter=require('express').Router();
-const {homePage,aboutPage,departmentsPage,featuresPage, testimonialPage, contactUsPage, faqPage, galleryPage, teamPage, enquiryPage, eventsPage}=require('../controllers/userFront')
+const {homePage,aboutPage,departmentsPage,featuresPage, testimonialPage, faqPage, galleryPage, teamPage, enquiryPage, eventsPage}=require('../../controllers/user/userFront')
 frontRouter.get('/',homePage)
 frontRouter.get('/about',aboutPage)
 frontRouter.get('/departments',departmentsPage)
 frontRouter.get('/features',featuresPage)
-frontRouter.get('/contactUs',contactUsPage)
 frontRouter.get('/testimonial',testimonialPage)
 frontRouter.get('/faq',faqPage)
 frontRouter.get('/gallery',galleryPage)

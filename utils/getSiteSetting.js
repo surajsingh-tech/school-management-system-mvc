@@ -1,4 +1,4 @@
-const setting = require('../models/adminSetting');
+const setting = require('../models/admin/adminSetting');
 
 const getSiteSetting = async () => {
   let settingData = await setting.findOne();
@@ -14,6 +14,7 @@ const getSiteSetting = async () => {
     siteWhatsapp: settingData?.whatsapp || process.env.SITE_WHATSAPP,
     siteMap1: settingData?.map1 || process.env.SITE_MAP1,
     siteMap2: settingData?.map2 || process.env.SITE_MAP2,
+    siteTime: settingData?.sitetime|| process.env.SITE_TIME,
     siteNameLogo: process.env.SITE_NAME_LOGO
       ? process.env.SITE_NAME_LOGO.split(" ").map(x => x[0]).join("")
       : ""

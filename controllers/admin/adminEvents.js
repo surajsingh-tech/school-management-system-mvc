@@ -1,6 +1,6 @@
 //for Check Schema Validation
 const mongoose = require("mongoose"); //for validate id in mongo   (!mongoose.Types.ObjectId.isValid(id))
-const Event = require("../../models/adminEvents");
+const Event = require("../../models/admin/adminEvents");
 const fs = require("fs").promises;
 const path = require("path");
 
@@ -13,7 +13,7 @@ let adminEventsPage = async (req, res) => {
       data: data,
     });
   } catch (err) {
-    console.log(err);
+    res.status(500).send("Server Issue ")
   }
 };
 
@@ -24,7 +24,9 @@ let adminEventsCreatePage = async (req, res) => {
       page: "Admin",
       data: {},
     });
-  } catch (err) {}
+  } catch (err) {
+    res.status(500).send("Server Issue ")
+  }
 };
 
 let adminEventsShowPage = async (req, res) => {
@@ -49,8 +51,7 @@ let adminEventsShowPage = async (req, res) => {
       res.status(404).send("Event not found");
     }
   } catch (err) {
-    console.error("Error in adminEventsShowPage:", err);
-    return res.status(500).send("Internal Server Error");
+     res.status(500).send("Internal Server Error");
   }
 };
 
@@ -180,20 +181,18 @@ let adminEventsDeletePage = async (req, res) => {
     }
     res.redirect("/admin/events");
   } catch (err) {
-    console.log(err);
     res.status(500).send("Error deleting event");
   }
 };
 
 let eventStorePage = async (req, res) => {
   try {
-    var data = new Event(req.body); //- new Event(req.body) → create new Mongoose document , validation attach , and  allow .save() method
+    let data = new Event(req.body); //- new Event(req.body) → create new Mongoose document , validation attach , and  allow .save() method
     if (req.file) {
       data.pic = `/uploads/events/${req.file.filename}`; // This path will be used by the browser to display the image via <img src="{{pic}}">
     }
     data.createdBy = "Admin";
     data.updatedBy= '',
-    data.updatedAt= '',
     await data.save();
     res.redirect("/admin/events");
   } catch (err) {

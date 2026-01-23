@@ -58,11 +58,11 @@
                     </tr>
                     <tr>
                       <th ><i class="bi bi-house-door-fill text-success me-2"></i> Address</th>
-                      <td >{{data.address}}</td>
+                      <td class=" text-primary fw-bold">{{data.address}}</td>
                     </tr>
                     <tr>
                       <th ><i class="bi bi-telephone-fill text-info me-2"></i> Phone</th>
-                      <td ><span class="badge bg-info text-dark">{{data.phone}}</span></td>
+                      <td ><span class=" text-primary fw-bold">{{data.phone}}</span></td>
                     </tr>
                     <tr>
                       <th ><i class="bi bi-envelope-fill text-warning me-2"></i> Email</th>
@@ -70,7 +70,7 @@
                     </tr>
                     <tr>
                       <th ><i class="bi bi-whatsapp text-success me-2"></i> Whatsapp</th>
-                      <td >{{data.whatsapp}}</td>
+                      <td class="text-primary fw-bold">{{data.whatsapp}}</td>
                     </tr>
                     <tr>
                       <th ><i class="bi bi-youtube text-danger me-2"></i> YouTube</th>
@@ -90,7 +90,11 @@
                     </tr>
                     <tr>
                       <th ><i class="bi bi-globe text-secondary me-2"></i> Site Name</th>
-                      <td ><span class="fw-bold text-dark">{{data.sitename}}</span></td>
+                      <td ><span class="fw-bold text-primary fw-bold">{{data.sitename}}</span></td>
+                    </tr>
+                    <tr>
+                      <th><i class="bi bi-clock text-secondary me-2"></i> Site Timing </th>
+                      <td> <span class="fw-bold text-primary fw-bold">{{data.sitetime}}</span></td>
                     </tr>
                     <tr>
                     <th>
@@ -99,7 +103,7 @@
                     {{#if data.createBy}}
                     <td>
                       <span class="fw-bold text-success">{{data.createBy}}</span>
-                      &emsp; at <span class="text-dark">{{formatDateTime data.createdAt}}</span>
+                      &emsp; at <span class="text-primary fw-bold">{{formatDateTime data.createdAt}}</span>
                     </td>
                     {{else}}
                     <td></td>
@@ -112,7 +116,7 @@
                     {{#if data.updateBy}}
                     <td>
                       <span class="fw-bold text-success">{{data.updateBy}}</span>
-                      &emsp; <span class="text-dark">{{formatDateTime data.updatedAt}}</span>
+                      &emsp; <span class="text-primary fw-bold">{{formatDateTime data.updatedAt}}</span>
                     </td>
                     {{else}}
                     <td></td>

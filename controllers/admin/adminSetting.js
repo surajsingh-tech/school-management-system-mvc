@@ -1,6 +1,6 @@
 //for Check Schema Validation
 const mongoose = require("mongoose"); 
-const Setting = require("../../models/adminSetting");
+const Setting = require("../../models/admin/adminSetting");
 
 
 let settingCreatePage = async (req, res) => {
@@ -12,8 +12,7 @@ let settingCreatePage = async (req, res) => {
       data: data||{},
     });
   } catch (err) {
-    console.log("error",err);
-    res.send(err.message)
+    res.status(500).send("Server Issue ")
   }
 };
 
@@ -21,14 +20,13 @@ let settingCreatePage = async (req, res) => {
 let viewSetting=async(req,res)=>{
     try{
       let data= await Setting.findOne()
-      console.log("Data setting",data);
       res.render('admin/setting/viewSetting.hbs',{
       title: "Admin Setting Page",
       page: "Admin",
       data: data||{}, 
       })}
     catch(err){
-      res.send(err.message)
+      res.status(500).send("Server Issue ")
     }
 }
 

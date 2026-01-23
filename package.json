@@ -18,5 +18,8 @@
     "mongoose": "^9.1.2",
     "multer": "^2.0.2",
     "sanitize-filename": "^1.6.3"
+  },
+  "devDependencies": {
+    "prettier-plugin-handlebars": "^0.0.1"
   }
 }

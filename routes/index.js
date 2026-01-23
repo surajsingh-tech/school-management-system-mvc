@@ -5,11 +5,12 @@ const router = require('express').Router()
 module.exports = router;
 
 // front.js से राउटर इम्पोर्ट करो
-const frontRouter = require('./userFront');
+const frontRouter = require('./user/userFront');
+const userContectUsRouter=require('./user/userContactUs')
 
 // frontRouter को माउंट करो
 router.use('/', frontRouter);
-
+router.use('/', userContectUsRouter);
 //for admin
 const adminRouter=require('./admin/home')
 router.use('/admin', adminRouter);

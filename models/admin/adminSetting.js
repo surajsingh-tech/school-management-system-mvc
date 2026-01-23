@@ -13,7 +13,8 @@ const adminSettingsSchema = new mongoose.Schema({
   twitter: { type: String },
   sitename: { type: String },
   createBy:{type:String},
-  updateBy:{type:String}
+  updateBy:{type:String},
+  sitetime:{type:String}
 }, { timestamps: true });
 
 // Model export

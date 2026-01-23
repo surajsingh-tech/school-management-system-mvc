@@ -26,9 +26,7 @@ let teamPage = (req,res) => {
 let testimonialPage = (req,res) => {
   res.render('pages/testimonialPage', { title: 'Testimonial', page: 'Testimonial ' })
 }
-let contactUsPage = (req,res) => {
-  res.render('pages/contactUsPage', { title: 'Contact', page: 'Contact ' })
-}
+
 
 let eventsPage = (req,res) => {
   res.render('pages/eventsPage', { title: 'Events', page: 'Events ' })
@@ -40,7 +38,6 @@ module.exports = {
   aboutPage,
   featuresPage,
   departmentsPage,
-  contactUsPage,
   enquiryPage,
   faqPage,
   galleryPage,
