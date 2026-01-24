@@ -1,7 +1,7 @@
 const hbs=require('hbs');
 
 hbs.registerHelper('eq', function (a, b) {
-  return a == b;
+  return a === b;
 });
 
 hbs.registerHelper("formatDate", function(date) {
@@ -38,3 +38,11 @@ hbs.registerHelper("formatDate", function(date) {
 hbs.registerHelper("formActive", function(a, b) {
   return String(a) === String(b);
 });
+
+hbs.registerHelper("isSelected", function (val1, val2) {
+  return val1 == val2 ? "selected" : "";
+});
+
+hbs.registerHelper("upercase",(str)=>{
+      return str.charAt(0).toUpperCase()+str.slice(1).toLowerCase();
+})

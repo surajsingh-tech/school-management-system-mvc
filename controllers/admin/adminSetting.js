@@ -1,5 +1,4 @@
 //for Check Schema Validation
-const mongoose = require("mongoose"); 
 const Setting = require("../../models/admin/adminSetting");
 
 

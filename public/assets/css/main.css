@@ -55,7 +55,7 @@
 .custom-table .col-title { width: 10%; }
 .custom-table .col-pic { width: 13%; }
 .custom-table .col-date { width: 8%; }
-.custom-table .col-short { width: 15%; }
+.custom-table .col-short { width: 15%}
 .custom-table .col-long { width: 15%;}
 .custom-table .col-view,
 .custom-table .col-update,
@@ -303,3 +303,80 @@ label {
 .btn-submit:hover {
   background: #0056b3;
 }
+
+
+/* Table Container */
+.table-responsive {
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+/* Modern Table Styling */
+.enquiry-table {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Table Head */
+.enquiry-table thead th {
+    background: linear-gradient(90deg, #4b6cb7, #182848);
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: 1px solid #dee2e6;
+}
+
+/* Table Body */
+.enquiry-table tbody td {
+    border: 1px solid #dee2e6;
+    word-wrap:break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    align-items: center;
+}
+
+/* Table Row Hover */
+.enquiry-table tbody tr:hover {
+    background-color: #f1f5f9;
+    transition: background 0.2s ease-in-out;
+}
+
+/* Status Badges */
+.badge {
+    font-size: 0.85rem;
+    padding: 0.4em 0.7em;
+    border-radius: 5px;
+}
+
+/* Buttons */
+.btn-sm {
+    padding: 4px 8px;
+    font-size: 0.85rem;
+}
+
+/* Text Overflow */
+.text-cell, .message-cell {
+    max-width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .text-cell, .message-cell {
+        max-width: 120px;
+    }
+}
+
+@media (max-width: 768px) {
+    .enquiry-table thead th, .enquiry-table tbody td {
+        font-size: 0.85rem;
+        padding: 8px 10px;
+    }
+    .text-cell, .message-cell {
+        max-width: 100px;
+    }
+}
+

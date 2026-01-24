@@ -64,7 +64,6 @@ let adminEventsUpdatePage = async (req, res) => {
     }
 
     let data = await Event.findById(id);
-    console.log("data Data",data);
     
     if (data) {
        res.render("admin/events/eventUpdate.hbs", {

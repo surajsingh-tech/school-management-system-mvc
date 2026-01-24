@@ -1,0 +1,109 @@
+{{>header}}
+{{>navbar}}
+{{>breadcrumb}}
+
+<div class="container-fluid enquiry-container">
+  <div class="row">
+    <!-- Sidebar Partial (col-2) -->
+    <div class="col-12 col-md-2 sidebar-section">
+      {{>sidebar}}
+    </div>
+
+    <!-- Main Content (col-10) -->
+    <div class="col-12 col-md-10 content-section  sidebar">
+      <h1 class="enquiry-header text-white">User Enquiry Details</h1>
+
+      <!-- Error Message -->
+      {{#if errMsg}}
+        <div class="alert alert-danger text-center">
+          {{errMsg}}
+        </div>
+      {{/if}}
+
+
+      <!-- Flash Messages -->
+          {{#if error}}
+            <div class="alert alert-danger text-center">
+              {{error}}
+            </div>
+          {{/if}}
+
+          {{#if success}}
+            <div class="alert alert-success text-center">
+              {{success}}
+            </div>
+          {{/if}}
+
+          
+      <!-- Responsive Table -->
+      <div class="table-responsive">
+        <table class="table table-hover table-bordered align-middle enquiry-table">
+          <thead class="table-dark text-center">
+            <tr>
+              <th class="col-short">Id</th>
+              <th class="col-mid">Name</th>
+              <th class="col-mid">Email</th>
+              <th class="col-mid">Phone</th>
+              <th class="col-large">Subject</th>
+              <th class="col-large">Message</th>
+              <th class="col-short">Status</th>
+              <th class="col-short">View</th>
+              <th class="col-short">Update</th>
+              <th class="col-short">Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each data}}
+            <tr>
+              <td>{{this._id}}</td>
+              <td>{{this.name}}</td>
+              <td>{{this.email}}</td>
+              <td>{{this.phone}}</td>
+              <td>{{shortway this.subject 35}}</td>
+              <td>{{shortway this.message 35}}</td>
+
+              <!-- Status Badges -->
+              <td>
+                {{#if (eq this.status "Pending")}}
+                  <span class="badge bg-warning text-primary">{{this.status}}</span>
+                {{else if (eq this.status "process")}}
+                  <span class="badge bg-warning text-dark">{{this.status}}</span>
+                {{else if (eq this.status "active")}}
+                  <span class="badge bg-primary">{{this.status}}</span>
+                {{else if (eq this.status "resolve")}}
+                  <span class="badge bg-success">{{this.status}}</span>
+                {{else if (eq this.status "reject")}}
+                  <span class="badge bg-danger">{{this.status}}</span>
+                {{else}}
+                  <span class="badge bg-secondary">{{this.status}}</span>
+                {{/if}}
+              </td>
+
+              <!-- Action Buttons -->
+              <td>
+                <a href="/admin/enquiry/view/{{this._id}}" class="btn btn-info btn-sm">
+                  <i class="bi bi-eye"></i>
+                </a>
+              </td>
+              <td>
+                <a href="/admin/enquiry/update/{{this._id}}" class="btn btn-warning btn-sm">
+                  <i class="bi bi-pencil-square"></i>
+                </a>
+              </td>
+              <td>
+                <a href="/admin/enquiry/delete/{{this._id}}" 
+                   onclick="return confirm('Are you sure you want to delete this inquiry?');"
+                   class="btn btn-danger btn-sm">
+                  <i class="bi bi-trash"></i>
+                </a>
+              </td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{>footer}}

@@ -1,0 +1,186 @@
+{{>header}}
+{{>navbar}}
+{{>breadcrumb}}
+
+<div class="container mt-4">
+
+  <!-- Header Card -->
+  <div class="card bg-primary bg-gradient text-white shadow mb-4 rounded-4 border-0">
+    <div class="card-body d-flex justify-content-between align-items-center px-4 py-3">
+      <div class="d-flex align-items-center gap-3">
+        <div class=" bg-opacity-25 p-2 rounded-circle bg-white">
+          <i class="bi bi-envelope-paper-fill fs-4 text-primary"></i>
+        </div>
+        <div>
+          <h4 class="mb-0 fw-semibold fw-bold text-white">Inquiry Details</h4>
+          <small class=" text-dark">Contact form submission</small>
+        </div>
+      </div>
+                   
+      <div class="d-flex gap-2">
+        <a href="/admin/enquiry"
+           class="btn btn-light btn-sm rounded-pill px-3">
+          <i class="bi bi-arrow-left"></i> Back
+        </a>
+         <a  href="/admin/enquiry/update/{{user._id}}"
+          class="btn btn-warning btn-sm rounded-pill px-3">
+          <i class="bi bi-pencil-square"></i> Update
+        </a>
+        <a href="/admin/enquiry/delete/{{user._id}}"
+           onclick="return confirm('Are you sure you want to delete this inquiry?');"
+           class="btn btn-danger btn-sm rounded-pill px-3">
+          <i class="bi bi-trash"></i> Delete
+        </a>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Details Card -->
+  <div class="card shadow-lg border-0 rounded-4">
+    <div class="card-body p-4">
+
+         <!-- Flash Messages -->
+          {{#if error}}
+            <div class="alert alert-danger text-center">
+              {{error}}
+            </div>
+          {{/if}}
+
+          {{#if success}}
+            <div class="alert alert-success text-center">
+              {{success}}
+            </div>
+          {{/if}}
+
+
+      <h5 class="text-primary fw-bold mb-4">
+        <i class="bi bi-person-lines-fill me-1"></i> Sender Information
+      </h5>
+
+      <div class="row g-4">
+
+        <!-- Left Column -->
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label class="form-label fw-semibold text-muted">
+              <i class="bi bi-hash"></i> Inquiry ID
+            </label>
+            <div class="input-group">
+              <span class="input-group-text bg-light">
+                <i class="bi bi-hash text-primary"></i>
+              </span>
+              <input type="text" class="form-control bg-light fw-medium"
+                     value="{{user._id}}" readonly>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label fw-semibold text-muted">
+              <i class="bi bi-person"></i> Name
+            </label>
+            <div class="input-group">
+              <span class="input-group-text bg-light">
+                <i class="bi bi-person text-primary"></i>
+              </span>
+              <input type="text" class="form-control bg-light fw-medium"
+                     value="{{user.name}}" readonly>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label class="form-label fw-semibold text-muted">
+              <i class="bi bi-envelope"></i> Email
+            </label>
+            <div class="input-group">
+              <span class="input-group-text bg-light">
+                <i class="bi bi-envelope text-primary"></i>
+              </span>
+              <input type="text" class="form-control bg-light fw-medium"
+                     value="{{user.email}}" readonly>
+            </div>
+          </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-semibold text-muted">
+                      <i class="bi bi-telephone"></i> Phone
+                    </label>
+
+                    <a href="tel:{{user.phone}}" class="text-decoration-none">
+                      <div class="input-group">
+                        <span class="input-group-text bg-light">
+                          <i class="bi bi-telephone text-primary"></i>
+                        </span>
+                        <input
+                          type="text"
+                          class="form-control bg-light fw-medium"
+                          value="{{user.phone}}"
+                          readonly
+                          style="cursor: pointer;"
+                        />
+                      </div>
+                    </a>
+                </div>
+
+        </div>
+
+        <!-- Subject -->
+        <div class="col-12">
+          <div class="mb-3">
+            <label class="form-label fw-semibold text-muted">
+              <i class="bi bi-bookmark"></i> Subject
+            </label>
+            <div class="input-group">
+              <span class="input-group-text bg-light">
+                <i class="bi bi-bookmark text-primary"></i>
+              </span>
+              <input type="text" class="form-control bg-light fw-medium"
+                     value="{{user.subject}}" readonly>
+            </div>
+          </div>
+        </div>
+
+        <!-- Message -->
+        <div class="col-12">
+          <div class="mb-1">
+            <label class="form-label fw-semibold text-muted">
+              <i class="bi bi-chat-left-text"></i> Message
+            </label>
+            
+            <textarea class="form-control bg-light fw-medium rounded-3"
+                      rows="4" readonly>{{user.message}}</textarea>       
+          </div>
+        </div>
+
+        <div class="col-4">
+            <div class="mb-3">
+              <label class="form-label fw-semibold text-muted">
+                <i class="bi bi-chat-left-text"></i> Status
+              </label>
+              <p>
+                {{#if (eq user.status "process")}}
+                  <span class="badge bg-warning text-dark">Process</span>
+                {{else if (eq user.status "resolve")}}
+                  <span class="badge bg-success">Resolved</span>
+                {{else if (eq user.status "reject")}}
+                  <span class="badge bg-danger">Rejected</span>
+                {{else if (eq user.status "active")}}
+                  <span class="badge bg-info text-dark">Active</span>
+                {{else}}
+                  <span class="badge bg-secondary">{{user.status}}</span>
+                {{/if}}
+              </p>               
+            </div>  
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{{>footer}}

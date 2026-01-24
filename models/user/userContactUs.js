@@ -1,6 +1,6 @@
 let mongoose = require('mongoose');
 
-let userContect = new mongoose.Schema({
+let userContact = new mongoose.Schema({
   name: { 
     type: String, 
     required: [true, "Name is required"], 
@@ -29,8 +29,13 @@ let userContect = new mongoose.Schema({
     minlength: [5, "Message must be at least 5 characters"], 
     maxlength: [500, "Message must not exceed 500 characters"] 
   },
+  status: {
+    type: String,
+    enum: ["active", "process", "reject","resolve"],
+    default: "active"
+  },
   createdBy: { type: String, default: "User" }
 }, { timestamps: true });
 
-let contectUs = mongoose.model('userContectUs', userContect);
-module.exports = contectUs;
+let contactUs = mongoose.model('userContactUs', userContact);
+module.exports = contactUs;

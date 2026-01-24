@@ -25,6 +25,24 @@ app.use(express.json()); // for JSON data
 app.use(express.urlencoded({ extended: true })); 
 app.use(siteSettingsMiddleware);
 
+// for send flash Message
+const session = require("express-session");
+const flash = require("connect-flash");
+
+// Session + Flash setup
+app.use(session({
+  secret: "secretKey",
+  resave: false,
+  saveUninitialized: true
+}));
+app.use(flash());
+
+// Global flash variables for views
+app.use((req, res, next) => {
+  res.locals.success = req.flash("success");
+  res.locals.error = req.flash("error");
+  next();
+});
 
 // Routes
 const Router = require('./routes/index.js');
